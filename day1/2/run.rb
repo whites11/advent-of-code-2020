@@ -12,24 +12,35 @@ f.close
 
 candidates.sort!
 
-i=0
-j=candidates.size - 1
+candidates.each_with_index do |d, k|
+  target = 2020-d
+  i=0
+  j=candidates.size - 1
 
-while i != j do
-  small=candidates[i]
-  big=candidates[j]
-  sum=small+big
+  while i != j do
+    if i == k then
+      i = i+1
+      next
+    end
+    if j == k then
+      j = j-1
+      next
+    end
 
-  if sum == 2020 then
-    puts "Numbers are #{big} and #{small}, answer is #{big*small}"
-    exit
-  end
+    small=candidates[i]
+    big=candidates[j]
+    sum=small+big
 
+    if sum == target then
+      puts "Numbers are #{big},  #{small}, and #{d}. Answer is #{big*small*d}"
+      exit
+    end
 
-  if sum > 2020 then
-    j -= 1
-  else
-    i += 1
+    if sum > target then
+      j -= 1
+    else
+      i += 1
+    end
   end
 end
 

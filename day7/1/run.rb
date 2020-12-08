@@ -34,6 +34,7 @@ f.each_line do |line|
     end
   end
 end
+f.close
 
 targets = ["shiny gold"]
 results = []

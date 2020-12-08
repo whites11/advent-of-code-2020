@@ -34,6 +34,7 @@ f.each_line do |line|
     end
   end
 end
+f.close
 
 targets = [{"color" => "shiny gold", "count" => 1}]
 count = 0

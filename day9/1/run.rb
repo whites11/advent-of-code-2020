@@ -41,8 +41,6 @@ while i < numbers.length
 
   addends = numbers[(i-preamble_size)..(i-1)].sort!
 
-  puts "n = #{n}, addends = #{addends.join ","}"
-
   unless find_sum(addends, n)
     puts "First failed is #{n}"
     break

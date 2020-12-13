@@ -106,7 +106,7 @@ class Boat
 
       # up
       c = i - @width
-      while c > 0
+      while c >= 0
         if @seats[c] != "."
           ids << c
           break
@@ -137,7 +137,7 @@ class Boat
       # bottom left
       1.upto(column) do |col|
         c = i + (col * @width) - col
-        break if c > @seats.length
+        break if c >= @seats.length
         if @seats[c] != "."
           ids << c
           break
@@ -157,7 +157,7 @@ class Boat
       # bottom right
       1.upto(@width - column - 1) do |col|
         c = i + (col * @width) + col
-        break if c > @seats.length
+        break if c >= @seats.length
         if @seats[c] != "."
           ids << c
           break
@@ -165,26 +165,6 @@ class Boat
       end
 
       @adiacent_ids[i] = ids
-
-      # if i == 39
-      #   b = @seats.dup
-      #
-      #   b[i] = "X"
-      #   ids.each do |id|
-      #     b[id] = "@"
-      #   end
-      #
-      #   puts self
-      #
-      #   k = "-"*@width + "\n"
-      #   j = 0
-      #   while j < b.length
-      #     k += b[j..(j+@width - 1)] + "\n"
-      #     j += @width
-      #   end
-      #   k += "-"*@width + "\n"
-      #   puts k
-      # end
     end
 
     ret = []

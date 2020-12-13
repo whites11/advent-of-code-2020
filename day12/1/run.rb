@@ -52,6 +52,4 @@ f.each_line do |line|
 end
 f.close
 
-puts "lat #{lat}, lon #{lon}"
-
 puts lat.abs + lon.abs
